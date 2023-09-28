@@ -1,16 +1,13 @@
 package Laboratorio04;
 import java.util.*;
 public class DemoBatalla {
-
-    // (El código previo se mantiene igual)
-
     public static int busquedaLinealNombre(Nave[] flota, String s){
         for (int i = 0; i < flota.length; i++) {
             if (flota[i].getNombre().equals(s)) {
                 return i;
             }
         }
-        return -1; // Si no se encuentra
+        return -1;
     }
 
     public static void ordenarPorPuntosBurbuja(Nave[] flota){
@@ -52,7 +49,7 @@ public class DemoBatalla {
                 izquierda = medio + 1;
             }
         }
-        return -1; // Si no se encuentra
+        return -1;
     }
 
     public static void ordenarPorPuntosSeleccion(Nave[] flota){
