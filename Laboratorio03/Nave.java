@@ -4,7 +4,6 @@ public class Nave {
     private String columna;
     private boolean estado;
     private int puntos;
-    // Metodos mutadores
     public void setNombre( String n){
     nombre = n;
     }
@@ -20,7 +19,6 @@ public class Nave {
     public void setPuntos(int p){
     puntos = p;
     }
-    // Metodos accesores
     public String getNombre(){
     return nombre;
     }
