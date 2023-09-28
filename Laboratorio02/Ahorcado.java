@@ -63,18 +63,30 @@ public class Ahorcado {
         String [] palabras = {"programacion", "java", "identacion", "clases","objetos", "desarrollador", "pruebas"};
         String palSecreta = getPalabraSecreta(palabras);
         StringBuilder palabraOculta = mostrarBlancos(palSecreta);
+        
+        System.out.println("¡Bienvenido al juego del ahorcado!");
         System.out.println(figuras[0]);
         mostrarBlancos(palSecreta);
         System.out.println("\n");
-        while(contador < palSecreta.length()) {
+
+        while(contador <= 7) {
             letra = ingreseLetra();
             if (letraEnPalabraSecreta(letra, palSecreta)) {
                 mostrarBlancosActualizados(letra, palSecreta, palabraOculta);
+                if (palabraOculta.indexOf("_") == -1) {
+                    System.out.println("¡Felicidades! ¡Has ganado!");
+                    break;
+                }
             }
             else {
+                System.out.println("Letra incorrecta. Intentos restantes: " + (6 - contador) + "\n");
                 System.out.println(figuras[contador]);
+                contador++;
             }
-            contador = contador +1;
+            if(contador == 7){
+                System.out.println("Game Over\n la palabra era '" + palSecreta + "'.");
+                break;
+            }
         }
         System.out.println("\n");
     }        
@@ -100,7 +112,7 @@ public class Ahorcado {
         System.out.println("Ingrese letra: ");
         laLetra = sc.next();
         while(laLetra.length()!= 1) {
-            System.out.println("Ingrese una letra: "); //COMPLETAR PARA VALIDAR CARACTERES PERMITIDOS
+            System.out.println("Ingrese solo una letra: "); 
             laLetra = sc.next();
         }
         return laLetra;
@@ -115,12 +127,13 @@ public class Ahorcado {
                 palabraOculta.setCharAt(i * 2, letra.charAt(0));
                 letraEncontrada = true;
             }
+
         }
         System.out.println("PROCESANDO.....");
         if (letraEncontrada) {
-            System.out.println("Letra correcta!");
+            System.out.println("Letra correcta!\n");
         } else {
-            System.out.println("Letra incorrecta.");
+            System.out.println("Letra incorrecta.\n");
         }
         System.out.println(palabraOculta);
     }
