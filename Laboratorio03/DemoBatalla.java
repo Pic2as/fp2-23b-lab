@@ -61,8 +61,6 @@ public class DemoBatalla {
             }
         }
     }
-    //Método para mostrar todas las naves con un número de puntos inferior o igual
-    //al número de puntos que se pide por teclado
     public static void mostrarPorPuntos(Nave [] flota){
         Scanner sc = new Scanner(System.in);
         System.out.print("Ingrese el número de puntos: ");
@@ -78,7 +76,6 @@ public class DemoBatalla {
             }
         }
     }
-    //Método que devuelve la Nave con mayor número de Puntos
     public static Nave mostrarMayorPuntos(Nave [] flota){
         Nave naveMayorPuntos = flota[0];
         for (Nave nave : flota) {
@@ -88,8 +85,6 @@ public class DemoBatalla {
         }
         return naveMayorPuntos;
     }
-    //Crear un método que devuelva un nuevo arreglo de objetos con todos los objetos previamente ingresados
-    //pero aleatoriamente desordenados
     public static Nave[] Lucha(Nave[] flota){
         Random rand = new Random();
         for (int i = flota.length - 1; i > 0; i--) {
