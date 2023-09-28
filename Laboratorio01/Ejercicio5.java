@@ -1,3 +1,5 @@
+//laboratorio Nro 01 - Ejercicio5
+//Autor: Llacho Delgado Samir Jaren 
 import java.util.*;
 
 public class Ejercicio5 {
