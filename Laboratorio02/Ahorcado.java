@@ -1,3 +1,5 @@
+//laboratorio Nro 02 - Ahorcado
+//Autor: Llacho Delgado Samir Jaren 
 import java.util.*;
 public class Ahorcado {
     public static void main(String []args){
