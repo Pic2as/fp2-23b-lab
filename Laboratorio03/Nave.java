@@ -1,3 +1,6 @@
+
+//laboratorio Nro 03 - Nave
+//Autor: Llacho Delgado Samir Jaren 
 public class Nave {
     private String nombre;
     private int fila;
