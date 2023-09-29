@@ -1,108 +1,92 @@
-//laboratorio Nro 03 - DemoBatalla nuevo
-//Autor: Llacho Delgado Samir Jaren 
+//laboratorio Nro 04 - DemoBatalla 
+//Autor: Llacho Delgado Samir Jaren
 package Laboratorio04;
 import java.util.*;
 public class DemoBatalla {
-    public static int busquedaLinealNombre(Nave[] flota, String s){
-        for (int i = 0; i < flota.length; i++) {
-            if (flota[i].getNombre().equals(s)) {
-                return i;
-            }
+    public static void main(String[] args) {
+        Nave[] misNaves = new Nave[8];
+        Scanner sc = new Scanner(System.in);
+        String nombre, columna;
+        int fila, puntos;
+        boolean estado;
+
+        for (int i = 0; i < misNaves.length; i++) {
+            System.out.println("Nave " + (i + 1));
+            System.out.print("Nombre: ");
+            nombre = sc.next();
+            System.out.println("Fila ");
+            fila = sc.nextInt();
+            System.out.print("Columna: ");
+            columna = sc.next();
+            System.out.print("Estado: ");
+            estado = sc.nextBoolean();
+            System.out.print("Puntos: ");
+            puntos = sc.nextInt();
+            misNaves[i] = new Nave(nombre, columna, fila, estado, puntos);
         }
-        return -1;
+
+        System.out.println("\nNaves creadas:");
+        mostrarNaves(misNaves);
+        mostrarPorNombre(misNaves);
+        mostrarPorPuntos(misNaves);
+        Nave naveMayorPuntos = mostrarMayorPuntos(misNaves);
+        if (naveMayorPuntos != null) {
+            System.out.println("\nNave con mayor número de puntos: " + naveMayorPuntos.getNombre());
+        }
+
+        sc.close();
     }
 
-    public static void ordenarPorPuntosBurbuja(Nave[] flota){
-        for (int i = 0; i < flota.length - 1; i++) {
-            for (int j = 0; j < flota.length - i - 1; j++) {
-                if (flota[j].getPuntos() > flota[j+1].getPuntos()) {
-                    Nave temp = flota[j];
-                    flota[j] = flota[j+1];
-                    flota[j+1] = temp;
-                }
-            }
-        }
-    }
-
-    public static void ordenarPorNombreBurbuja(Nave[] flota){
-        for (int i = 0; i < flota.length - 1; i++) {
-            for (int j = 0; j < flota.length - i - 1; j++) {
-                if (flota[j].getNombre().compareTo(flota[j+1].getNombre()) > 0) {
-                    Nave temp = flota[j];
-                    flota[j] = flota[j+1];
-                    flota[j+1] = temp;
-                }
-            }
-        }
-    }
-
-    public static int busquedaBinariaNombre(Nave[] flota, String s){
-        int izquierda = 0;
-        int derecha = flota.length - 1;
-        while (izquierda <= derecha) {
-            int medio = izquierda + (derecha - izquierda) / 2;
-            int comparacion = s.compareTo(flota[medio].getNombre());
-            if (comparacion == 0) {
-                return medio;
-            }
-            if (comparacion < 0) {
-                derecha = medio - 1;
-            } else {
-                izquierda = medio + 1;
-            }
-        }
-        return -1;
-    }
-
-    public static void ordenarPorPuntosSeleccion(Nave[] flota){
-        for (int i = 0; i < flota.length - 1; i++) {
-            int minIndex = i;
-            for (int j = i+1; j < flota.length; j++) {
-                if (flota[j].getPuntos() < flota[minIndex].getPuntos()) {
-                    minIndex = j;
-                }
-            }
-            Nave temp = flota[minIndex];
-            flota[minIndex] = flota[i];
-            flota[i] = temp;
+    public static void mostrarNaves(Nave[] flota) {
+        for (Nave nave : flota) {
+            System.out.println(nave.toString());
         }
     }
 
-    public static void ordenarPorNombreSeleccion(Nave[] flota){
-        for (int i = 0; i < flota.length - 1; i++) {
-            int minIndex = i;
-            for (int j = i+1; j < flota.length; j++) {
-                if (flota[j].getNombre().compareTo(flota[minIndex].getNombre()) < 0) {
-                    minIndex = j;
-                }
+    public static void mostrarPorNombre(Nave[] flota) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese el nombre de la nave a buscar:");
+        String nombreBuscado = sc.next();
+
+        boolean encontrado = false;
+        for (Nave nave : flota) {
+            if (nave.getNombre().equalsIgnoreCase(nombreBuscado)) {
+                System.out.println(nave.toString());
+                encontrado = true;
+                break;
             }
-            Nave temp = flota[minIndex];
-            flota[minIndex] = flota[i];
-            flota[i] = temp;
+        }
+
+        if (!encontrado) {
+            System.out.println("Nave no encontrada.");
         }
     }
 
-    public static void ordenarPorPuntosInsercion(Nave[] flota){
-        for (int i = 1; i < flota.length; i++) {
-            Nave key = flota[i];
-            int j = i - 1;
-            while (j >= 0 && flota[j].getPuntos() > key.getPuntos()) {
-                flota[j+1] = flota[j];
-                j = j - 1;
+    public static void mostrarPorPuntos(Nave[] flota) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese el número de puntos máximo:");
+        int puntosMaximos = sc.nextInt();
+
+        for (Nave nave : flota) {
+            if (nave.getPuntos() <= puntosMaximos) {
+                System.out.println(nave.toString());
             }
-            flota[j+1] = key;
         }
     }
 
-    public static void ordenarPorNombreInsercion(Nave[] flota){
-        for (int i = 1; i < flota.length; i++) {
-            Nave key = flota[i];
-            int j = i - 1;
-            while (j >= 0 && flota[j].getNombre().compareTo(key.getNombre()) > 0) {
-                flota[j+1] = flota[j];
-                j = j - 1;
-            }
-            flota[j+1] = key;
+    public static Nave mostrarMayorPuntos(Nave[] flota) {
+        if (flota.length == 0) {
+            System.out.println("No hay naves en la flota.");
+            return null;
         }
+
+        Nave mayorPuntos = flota[0];
+        for (Nave nave : flota) {
+            if (nave.getPuntos() > mayorPuntos.getPuntos()) {
+                mayorPuntos = nave;
+            }
+        }
+
+        return mayorPuntos;
     }
 }

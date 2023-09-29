@@ -10,6 +10,7 @@ public class Ejercicio5 {
         ejercitos.mostrarEjercitos();
         ejercitos.mostrarEjercitoGanador();
     }
+    
     public void inicializarEjercitos() {
         Random rand = new Random();
         int numSoldados1 = rand.nextInt(5) + 1;

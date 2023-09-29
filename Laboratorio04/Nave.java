@@ -1,40 +1,65 @@
+package Laboratorio04;
 //laboratorio Nro 04 - Nave
 //Autor: Llacho Delgado Samir Jaren
-package Laboratorio04; 
-public class Nave {
+import java.util.*;
+class Nave {
     private String nombre;
-    private int fila;
     private String columna;
+    private int fila;
     private boolean estado;
     private int puntos;
-    public void setNombre( String n){
-    nombre = n;
+
+    public Nave(String nombre, String columna, int fila, boolean estado, int puntos) {
+        this.nombre = nombre;
+        this.columna = columna;
+        this.fila = fila;
+        this.estado = estado;
+        this.puntos = puntos;
     }
-    public void setFila(int f){
-    fila = f;
+
+    public String getNombre() {
+        return nombre;
     }
-    public void setColumna(String c){
-    columna = c;
+
+    public String getColumna() {
+        return columna;
     }
-    public void setEstado(boolean e){
-    estado = e;
+
+    public int getFila() {
+        return fila;
     }
-    public void setPuntos(int p){
-    puntos = p;
+
+    public boolean getEstado() {
+        return estado;
     }
-    public String getNombre(){
-    return nombre;
+
+    public int getPuntos() {
+        return puntos;
     }
-    public int getFila(){
-    return fila;
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
-    public String getColumna(){
-    return columna;
+
+    public void setColumna(String columna) {
+        this.columna = columna;
     }
-    public boolean getEstado(){
-    return estado;
+
+    public void setFila(int fila) {
+        this.fila = fila;
     }
-    public int getPuntos(){
-    return puntos;    
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    public void setPuntos(int puntos) {
+        this.puntos = puntos;
+    }
+
+    @Override
+    public String toString() {
+        return "Nave [nombre=" + nombre + ", columna=" + columna + ", fila=" + fila + ", estado=" + estado
+                + ", puntos=" + puntos + "]";
     }
 }
