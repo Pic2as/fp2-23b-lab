@@ -1,6 +1,7 @@
+//laboratorio Nro 05 - Videojuego2
+//Autor: Llacho Delgado Samir Jaren
 package Laboratorio05;
 import java.util.*;
-
 public class VideoJuego2 {
     public static void main(String[] args) {
         int tamano = 5; 

@@ -1,3 +1,5 @@
+//laboratorio Nro 02 - DemoBatalla
+//Autor: Llacho Delgado Samir Jaren
 import java.util.*;
 public class DemoBatalla {
     public static void main(String [] args){

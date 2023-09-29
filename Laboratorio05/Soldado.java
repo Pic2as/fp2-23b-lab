@@ -1,6 +1,7 @@
+//laboratorio Nro 05 - Soldado
+//Autor: Llacho Delgado Samir Jaren
 package Laboratorio05;
 import java.util.*;
-
 public class Soldado {
     private String nombre;
     private int puntosVida;

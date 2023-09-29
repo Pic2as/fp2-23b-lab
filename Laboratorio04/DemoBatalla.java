@@ -1,3 +1,5 @@
+//laboratorio Nro 03 - DemoBatalla nuevo
+//Autor: Llacho Delgado Samir Jaren 
 package Laboratorio04;
 import java.util.*;
 public class DemoBatalla {
