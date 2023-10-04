@@ -81,7 +81,7 @@ public class Ahorcado {
                 }
             }
             else {
-                System.out.println("Letra incorrecta. Intentos restantes: " + (6 - contador) + "\n");
+                System.out.println("Letra incorrecta. Intentos restantes: " + (7 - contador) + "\n");
                 System.out.println(figuras[contador]);
                 contador++;
             }
