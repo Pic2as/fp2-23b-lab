@@ -1,8 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class VideoJuego3 {
     private static final int TABLERO_SIZE = 5;
