@@ -1,13 +1,13 @@
 import java.util.*;
 
-public class VideoJuego3 {
+public class VideoJuego4 {
     private static final int TABLERO_SIZE = 5;
 
     private List<List<Soldado>> tablero = new ArrayList<>();
     private List<Soldado> ejercito1 = new ArrayList<>();
     private List<Soldado> ejercito2 = new ArrayList<>();
 
-    public VideoJuego3() {
+    public VideoJuego4() {
         // Inicializar el tablero
         for (int i = 0; i < TABLERO_SIZE; i++) {
             List<Soldado> fila = new ArrayList<>();
@@ -67,7 +67,7 @@ public class VideoJuego3 {
     }
 
     public static void main(String[] args) {
-        VideoJuego3 juego = new VideoJuego3();
+        VideoJuego4 juego = new VideoJuego4();
 
         // Mostrar información solicitada
         // ...
