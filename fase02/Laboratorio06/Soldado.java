@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class Soldado {
     private String nombre;
     private int puntosDeVida;
