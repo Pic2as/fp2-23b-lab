@@ -33,8 +33,6 @@ public class Soldado {
             puntosDeVida = 0;
         }
     }
-
-    @Override
     public String toString() {
         return "Soldado{" +
                 "nombre='" + nombre + '\'' +
