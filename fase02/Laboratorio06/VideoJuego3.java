@@ -1,22 +1,12 @@
 import java.util.*;
-
 public class VideoJuego3 {
-    private static final int TABLERO_SIZE = 5;
-
-    private List<List<Soldado>> tablero = new ArrayList<>();
-    private List<Soldado> ejercito1 = new ArrayList<>();
-    private List<Soldado> ejercito2 = new ArrayList<>();
-
     public VideoJuego3() {
-        // Inicializar el tablero
-        for (int i = 0; i < TABLERO_SIZE; i++) {
-            List<Soldado> fila = new ArrayList<>();
-            for (int j = 0; j < TABLERO_SIZE; j++) {
-                fila.add(null);
+        public Tablero(int filas, int columnas){
+            tablero = new ArrayList<>();
+            for(int i = 0; i < filas; i++){
+                fila.add("   ");
             }
-            tablero.add(fila);
         }
-
         // Crear Soldados para el Ejército 1
         for (int i = 0; i < 10; i++) {
             String nombre = "Soldado1X" + (i+1);
