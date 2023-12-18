@@ -26,11 +26,4 @@ public class Soldado {
     public int getColumna() {
         return columna;
     }
-
-    public void recibirDanio(int danio) {
-        puntosDeVida -= danio;
-        if (puntosDeVida < 0) {
-            puntosDeVida = 0;
-        }
-    }
 }
