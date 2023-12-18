@@ -15,7 +15,7 @@ public class Soldado {
         return nombre;
     }
 
-    public int getPuntosDeVida() {
+    public int getPuntosVida() {
         return puntosDeVida;
     }
 

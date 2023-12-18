@@ -10,6 +10,7 @@ public class VideoJuego3{
         
         imprimirTablero(tablero);
         imprimirDatosSoldados(ejercito1, ejercito2);
+        imprimirRankingDePoder(ejercito1, ejercito2);
     }
 
     private static void inicializarTablero(ArrayList<ArrayList<Soldado>> tablero, ArrayList<Soldado> ejercito1, ArrayList<Soldado> ejercito2, int n) {
@@ -64,6 +65,24 @@ public class VideoJuego3{
         }
         System.out.println();
         System.out.println("Datos de los soldados del Ejército 2:");
+        for (Soldado soldado : ejercito2) {
+            System.out.println(soldado.getNombre() + " - Puntos de Vida: " + soldado.getPuntosVida());
+        }
+        System.out.println();
+    }
+    private static void imprimirRankingDePoder(ArrayList<Soldado> ejercito1, ArrayList<Soldado> ejercito2) {
+        // Ordenar soldados por puntos de vida de forma ascendente (menor a mayor)
+        Collections.sort(ejercito1, (s1, s2) -> Integer.compare(s1.getPuntosVida(), s2.getPuntosVida()));
+        Collections.sort(ejercito2, (s1, s2) -> Integer.compare(s1.getPuntosVida(), s2.getPuntosVida()));
+
+        System.out.println("Ranking de poder del Ejército 1 (menor a mayor):");
+        for (Soldado soldado : ejercito1) {
+            System.out.println(soldado.getNombre() + " - Puntos de Vida: " + soldado.getPuntosVida());
+        }
+
+        System.out.println();
+
+        System.out.println("Ranking de poder del Ejército 2 (menor a mayor):");
         for (Soldado soldado : ejercito2) {
             System.out.println(soldado.getNombre() + " - Puntos de Vida: " + soldado.getPuntosVida());
         }
