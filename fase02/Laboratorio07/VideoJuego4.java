@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class VideoJuego4 {
-    private static final int TABLERO_SIZE = 5;
+    private static final int TABLERO_SIZE = 10;
 
     private List<List<Soldado>> tablero = new ArrayList<>();
     private List<Soldado> ejercito1 = new ArrayList<>();

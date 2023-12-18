@@ -33,12 +33,4 @@ public class Soldado {
             puntosDeVida = 0;
         }
     }
-    public String toString() {
-        return "Soldado{" +
-                "nombre='" + nombre + '\'' +
-                ", puntosDeVida=" + puntosDeVida +
-                ", fila=" + fila +
-                ", columna=" + columna +
-                '}';
-    }
 }
