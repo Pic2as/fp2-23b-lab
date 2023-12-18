@@ -108,8 +108,8 @@ public class VideoJuego3{
         }
     }
     private static void imprimirPromedioDeVida(ArrayList<Soldado> ejercito1, ArrayList<Soldado> ejercito2) {
-        double promedioVidaEjercito1 = ejercito1.stream().mapToDouble(Soldado::getPuntosVida).average().orElse(0);
-        double promedioVidaEjercito2 = ejercito2.stream().mapToDouble(Soldado::getPuntosVida).average().orElse(0);
+        double promedioVidaEjercito1 = calcularPromedioVida(ejercito1);
+        double promedioVidaEjercito2 = calcularPromedioVida(ejercito2);
 
         System.out.println("Promedio de vida del Ejército 1: " + promedioVidaEjercito1);
         System.out.println("Promedio de vida del Ejército 2: " + promedioVidaEjercito2);
@@ -119,6 +119,19 @@ public class VideoJuego3{
             System.out.println(" > El Ejército 2 ganaria por tener un promedio de vida mayor.\n");
         } else {
             System.out.println(" > Ambos ejércitos tienen el mismo promedio de vida.\n");
+        }
+    }
+    private static double calcularPromedioVida(ArrayList<Soldado> ejercito) {
+        double sumaVida = 0;
+    
+        for (Soldado soldado : ejercito) {
+            sumaVida += soldado.getPuntosVida();
+        }
+    
+        if (ejercito.size() > 0) {
+            return sumaVida / ejercito.size();
+        } else {
+            return 0;
         }
     }
 }
