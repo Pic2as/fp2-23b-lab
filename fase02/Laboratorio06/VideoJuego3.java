@@ -12,6 +12,8 @@ public class VideoJuego3{
         imprimirDatosSoldados(ejercito1, ejercito2);
         imprimirRankingDePoder(ejercito1, ejercito2);
         imprimirSoldadoConMayorVida(ejercito1, ejercito2);
+        imprimirPromedioDeVida(ejercito1, ejercito2);
+
     }
 
     private static void inicializarTablero(ArrayList<ArrayList<Soldado>> tablero, ArrayList<Soldado> ejercito1, ArrayList<Soldado> ejercito2, int n) {
@@ -56,7 +58,7 @@ public class VideoJuego3{
 
         return soldado;
     }
-    
+
     private static boolean yaOcupado(ArrayList<ArrayList<Soldado>> tablero, int fila, int columna) {
         return !tablero.get(fila).isEmpty() && tablero.get(fila).get(tablero.get(fila).size() - 1).getColumna() == columna;
     }
@@ -103,6 +105,20 @@ public class VideoJuego3{
             System.out.println(" > El Ejército 2 ganaria por tener un soldado con mayor vida.\n");
         } else {
             System.out.println(" > Ambos ejércitos tienen un soldado con la misma vida máxima.\n");
+        }
+    }
+    private static void imprimirPromedioDeVida(ArrayList<Soldado> ejercito1, ArrayList<Soldado> ejercito2) {
+        double promedioVidaEjercito1 = ejercito1.stream().mapToDouble(Soldado::getPuntosVida).average().orElse(0);
+        double promedioVidaEjercito2 = ejercito2.stream().mapToDouble(Soldado::getPuntosVida).average().orElse(0);
+
+        System.out.println("Promedio de vida del Ejército 1: " + promedioVidaEjercito1);
+        System.out.println("Promedio de vida del Ejército 2: " + promedioVidaEjercito2);
+        if (promedioVidaEjercito1 > promedioVidaEjercito2) {
+            System.out.println(" > El Ejército 1 ganaria por tener un promedio de vida mayor.\n");
+        } else if (promedioVidaEjercito1 < promedioVidaEjercito2) {
+            System.out.println(" > El Ejército 2 ganaria por tener un promedio de vida mayor.\n");
+        } else {
+            System.out.println(" > Ambos ejércitos tienen el mismo promedio de vida.\n");
         }
     }
 }
