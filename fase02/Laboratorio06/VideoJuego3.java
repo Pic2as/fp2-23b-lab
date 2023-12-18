@@ -5,7 +5,9 @@ public class VideoJuego3{
         ArrayList<ArrayList<Soldado>> tablero = new ArrayList<>();
         ArrayList<Soldado> ejercito1 = new ArrayList<>();
         ArrayList<Soldado> ejercito2 = new ArrayList<>();
+        inicializarTablero(tablero, ejercito1, ejercito2, n);
     }
+    
     private static void inicializarTablero(ArrayList<ArrayList<Soldado>> tablero, ArrayList<Soldado> ejercito1, ArrayList<Soldado> ejercito2, int n) {
         Random random = new Random();
 
@@ -13,7 +15,7 @@ public class VideoJuego3{
             tablero.add(new ArrayList<>());
         }
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < 10; i++) {
             // Crear soldado para el ejército 1
             Soldado soldado1 = crearSoldado(i, 1, random, tablero);
             ejercito1.add(soldado1);
