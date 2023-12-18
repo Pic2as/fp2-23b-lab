@@ -6,8 +6,9 @@ public class VideoJuego3{
         ArrayList<Soldado> ejercito1 = new ArrayList<>();
         ArrayList<Soldado> ejercito2 = new ArrayList<>();
         inicializarTablero(tablero, ejercito1, ejercito2, n);
+        imprimirTablero(tablero);
     }
-    
+
     private static void inicializarTablero(ArrayList<ArrayList<Soldado>> tablero, ArrayList<Soldado> ejercito1, ArrayList<Soldado> ejercito2, int n) {
         Random random = new Random();
 
@@ -24,6 +25,16 @@ public class VideoJuego3{
             Soldado soldado2 = crearSoldado(i, 2, random, tablero);
             ejercito2.add(soldado2);
         }
+    }
+    private static void imprimirTablero(ArrayList<ArrayList<Soldado>> tablero) {
+        for (int i = 0; i < tablero.size(); i++) {
+            for (Soldado soldado : tablero.get(i)) {
+                System.out.print(soldado.getNombre() + " | ");
+            }
+            System.out.println();
+            System.out.println("-----------------------------------------------------------------------------");
+        }
+        System.out.println();
     }
     private static Soldado crearSoldado(int index, int ejercito, Random random, ArrayList<ArrayList<Soldado>> tablero) {
         String nombre = "Soldado" + index + "X" + ejercito;
