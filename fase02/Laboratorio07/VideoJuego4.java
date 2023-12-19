@@ -96,14 +96,14 @@ public class VideoJuego4{
         Collections.sort(ejercito1, (s1, s2) -> Integer.compare(s2.getPuntosDeVida(), s1.getPuntosDeVida()));
         Collections.sort(ejercito2, (s1, s2) -> Integer.compare(s2.getPuntosDeVida(), s1.getPuntosDeVida()));
 
-        System.out.println("Ranking de poder del Ejército 1 (menor a mayor):");
+        System.out.println("Ranking de poder del Ejército 1 (mayor a menor):");
         for (Soldado soldado : ejercito1) {
             System.out.println(soldado.getNombre() + " - Puntos de Vida: " + soldado.getPuntosDeVida());
         }
 
         System.out.println();
 
-        System.out.println("Ranking de poder del Ejército 2 (menor a mayor):");
+        System.out.println("Ranking de poder del Ejército 2 (mayor a menor):");
         for (Soldado soldado : ejercito2) {
             System.out.println(soldado.getNombre() + " - Puntos de Vida: " + soldado.getPuntosDeVida());
         }
