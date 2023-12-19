@@ -39,7 +39,7 @@ public class VideoJuego4{
                 System.out.print(soldado.getNombre() + " | ");
             }
             System.out.println();
-            System.out.println("-----------------------------------------------------------------------------");
+            System.out.println("-------------------------------------------------------------------------------------------");
         }
         System.out.println();
     }
