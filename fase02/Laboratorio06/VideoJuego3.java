@@ -66,42 +66,42 @@ public class VideoJuego3{
     private static void imprimirDatosSoldados(ArrayList<Soldado> ejercito1, ArrayList<Soldado> ejercito2) {
         System.out.println("Datos de los soldados del Ejército 1:");
         for (Soldado soldado : ejercito1) {
-            System.out.println(soldado.getNombre() + " - Puntos de Vida: " + soldado.getPuntosVida());
+            System.out.println(soldado.getNombre() + " - Puntos de Vida: " + soldado.getPuntosDeVida());
         }
         System.out.println();
         System.out.println("Datos de los soldados del Ejército 2:");
         for (Soldado soldado : ejercito2) {
-            System.out.println(soldado.getNombre() + " - Puntos de Vida: " + soldado.getPuntosVida());
+            System.out.println(soldado.getNombre() + " - Puntos de Vida: " + soldado.getPuntosDeVida());
         }
         System.out.println();
     }
     private static void imprimirRankingDePoder(ArrayList<Soldado> ejercito1, ArrayList<Soldado> ejercito2) {
         // Ordenar soldados por puntos de vida de forma ascendente (menor a mayor)
-        Collections.sort(ejercito1, (s1, s2) -> Integer.compare(s1.getPuntosVida(), s2.getPuntosVida()));
-        Collections.sort(ejercito2, (s1, s2) -> Integer.compare(s1.getPuntosVida(), s2.getPuntosVida()));
+        Collections.sort(ejercito1, (s1, s2) -> Integer.compare(s1.getPuntosDeVida(), s2.getPuntosDeVida()));
+        Collections.sort(ejercito2, (s1, s2) -> Integer.compare(s1.getPuntosDeVida(), s2.getPuntosDeVida()));
 
         System.out.println("Ranking de poder del Ejército 1 (menor a mayor):");
         for (Soldado soldado : ejercito1) {
-            System.out.println(soldado.getNombre() + " - Puntos de Vida: " + soldado.getPuntosVida());
+            System.out.println(soldado.getNombre() + " - Puntos de Vida: " + soldado.getPuntosDeVida());
         }
 
         System.out.println();
 
         System.out.println("Ranking de poder del Ejército 2 (menor a mayor):");
         for (Soldado soldado : ejercito2) {
-            System.out.println(soldado.getNombre() + " - Puntos de Vida: " + soldado.getPuntosVida());
+            System.out.println(soldado.getNombre() + " - Puntos de Vida: " + soldado.getPuntosDeVida());
         }
         System.out.println();
     }
     private static void imprimirSoldadoConMayorVida(ArrayList<Soldado> ejercito1, ArrayList<Soldado> ejercito2) {
-        Soldado maxVidaEjercito1 = Collections.max(ejercito1, (s1, s2) -> Integer.compare(s1.getPuntosVida(), s2.getPuntosVida()));
-        Soldado maxVidaEjercito2 = Collections.max(ejercito2, (s1, s2) -> Integer.compare(s1.getPuntosVida(), s2.getPuntosVida()));
+        Soldado maxVidaEjercito1 = Collections.max(ejercito1, (s1, s2) -> Integer.compare(s1.getPuntosDeVida(), s2.getPuntosDeVida()));
+        Soldado maxVidaEjercito2 = Collections.max(ejercito2, (s1, s2) -> Integer.compare(s1.getPuntosDeVida(), s2.getPuntosDeVida()));
 
-        System.out.println("Soldado con mayor vida del Ejército 1: " + maxVidaEjercito1.getNombre() + " - Puntos de Vida: " + maxVidaEjercito1.getPuntosVida());
-        System.out.println("Soldado con mayor vida del Ejército 2: " + maxVidaEjercito2.getNombre() + " - Puntos de Vida: " + maxVidaEjercito2.getPuntosVida());
-        if (maxVidaEjercito1.getPuntosVida() > maxVidaEjercito2.getPuntosVida()) {
+        System.out.println("Soldado con mayor vida del Ejército 1: " + maxVidaEjercito1.getNombre() + " - Puntos de Vida: " + maxVidaEjercito1.getPuntosDeVida());
+        System.out.println("Soldado con mayor vida del Ejército 2: " + maxVidaEjercito2.getNombre() + " - Puntos de Vida: " + maxVidaEjercito2.getPuntosDeVida());
+        if (maxVidaEjercito1.getPuntosDeVida() > maxVidaEjercito2.getPuntosDeVida()) {
             System.out.println(" > El Ejército 1 ganaria por tener un soldado con mayor vida.\n");
-        } else if (maxVidaEjercito1.getPuntosVida() < maxVidaEjercito2.getPuntosVida()) {
+        } else if (maxVidaEjercito1.getPuntosDeVida() < maxVidaEjercito2.getPuntosDeVida()) {
             System.out.println(" > El Ejército 2 ganaria por tener un soldado con mayor vida.\n");
         } else {
             System.out.println(" > Ambos ejércitos tienen un soldado con la misma vida máxima.\n");
@@ -125,7 +125,7 @@ public class VideoJuego3{
         double sumaVida = 0;
     
         for (Soldado soldado : ejercito) {
-            sumaVida += soldado.getPuntosVida();
+            sumaVida += soldado.getPuntosDeVida();
         }
     
         if (ejercito.size() > 0) {
