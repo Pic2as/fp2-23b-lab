@@ -110,8 +110,8 @@ public class VideoJuego4{
         System.out.println();
     }
     private static void imprimirSoldadoConMayorVida(ArrayList<Soldado> ejercito1, ArrayList<Soldado> ejercito2) {
-        Soldado maxVidaEjercito1 = Collections.max(ejercito1, (s1, s2) -> Integer.compare(s2.getPuntosDeVida(), s1.getPuntosDeVida()));
-        Soldado maxVidaEjercito2 = Collections.max(ejercito2, (s1, s2) -> Integer.compare(s2.getPuntosDeVida(), s1.getPuntosDeVida()));
+        Soldado maxVidaEjercito1 = encontrarSoldadoConMayorVida(ejercito1);
+        Soldado maxVidaEjercito2 = encontrarSoldadoConMayorVida(ejercito2);
 
         System.out.println("Soldado con mayor vida del Ejército 1: " + maxVidaEjercito1.getNombre() + " - Puntos de Vida: " + maxVidaEjercito1.getPuntosDeVida());
         System.out.println("Soldado con mayor vida del Ejército 2: " + maxVidaEjercito2.getNombre() + " - Puntos de Vida: " + maxVidaEjercito2.getPuntosDeVida());
@@ -122,6 +122,21 @@ public class VideoJuego4{
         } else {
             System.out.println(" > Ambos ejércitos tienen un soldado con la misma vida máxima.\n");
         }
+    }
+    private static Soldado encontrarSoldadoConMayorVida(ArrayList<Soldado> ejercito) {
+        if (ejercito.isEmpty()) {
+            return null;  // Manejar el caso de una lista vacía según tus requerimientos
+        }
+    
+        Soldado maxVidaSoldado = ejercito.get(0);
+    
+        for (Soldado soldado : ejercito) {
+            if (soldado.getPuntosDeVida() > maxVidaSoldado.getPuntosDeVida()) {
+                maxVidaSoldado = soldado;
+            }
+        }
+    
+        return maxVidaSoldado;
     }
     private static void imprimirPromedioDeVida(ArrayList<Soldado> ejercito1, ArrayList<Soldado> ejercito2) {
         double promedioVidaEjercito1 = calcularPromedioVida(ejercito1);
