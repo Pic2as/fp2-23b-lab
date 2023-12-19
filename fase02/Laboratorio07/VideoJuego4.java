@@ -92,7 +92,7 @@ public class VideoJuego4{
         System.out.println();
     }
     private static void imprimirRankingDePoder(ArrayList<Soldado> ejercito1, ArrayList<Soldado> ejercito2) {
-        // Ordenar soldados por puntos de vida de forma ascendente (menor a mayor)
+        // Ordenar soldados por puntos de vida de forma ascendente (ahora de mayor a menor)
         Collections.sort(ejercito1, (s1, s2) -> Integer.compare(s2.getPuntosDeVida(), s1.getPuntosDeVida()));
         Collections.sort(ejercito2, (s1, s2) -> Integer.compare(s2.getPuntosDeVida(), s1.getPuntosDeVida()));
 
