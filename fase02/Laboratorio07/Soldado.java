@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public class Soldado {
     private String nombre;
     private int puntosDeVida;
@@ -27,22 +25,5 @@ public class Soldado {
 
     public int getColumna() {
         return columna;
-    }
-
-    public void recibirDanio(int danio) {
-        puntosDeVida -= danio;
-        if (puntosDeVida < 0) {
-            puntosDeVida = 0;
-        }
-    }
-
-    @Override
-    public String toString() {
-        return "Soldado{" +
-                "nombre='" + nombre + '\'' +
-                ", puntosDeVida=" + puntosDeVida +
-                ", fila=" + fila +
-                ", columna=" + columna +
-                '}';
     }
 }
