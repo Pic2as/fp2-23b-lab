@@ -25,11 +25,11 @@ public class VideoJuego4{
 
         for (int i = 0; i < 10; i++) {
             // Crear soldado para el ejército 1
-            Soldado soldado1 = crearSoldados(i, 1, random, tablero);
+            Soldado soldado1 = crearSoldados1(i, 1, random, tablero);
             ejercito1.add(soldado1);
 
             // Crear soldado para el ejército 2
-            Soldado soldado2 = crearSoldados(i, 2, random, tablero);
+            Soldado soldado2 = crearSoldados2(i, 2, random, tablero);
             ejercito2.add(soldado2);
         }
     }
@@ -43,9 +43,25 @@ public class VideoJuego4{
         }
         System.out.println();
     }
-    private static Soldado crearSoldados(int index, int ejercito, Random random, ArrayList<ArrayList<Soldado>> tablero) {
-        String nombre = "Soldado" + index + "X" + ejercito;
+    private static Soldado crearSoldados1(int index, int ejercito, Random random, ArrayList<ArrayList<Soldado>> tablero) {
         int puntosVida = random.nextInt(5) + 1;
+        String nombre = "Soldado " + index + "X" + ejercito + " ♦ " + puntosVida + " vida ♦ ";
+        int fila, columna;
+
+        do {
+            fila = random.nextInt(10);
+            columna = random.nextInt(10);
+        } while (yaOcupado(tablero, fila, columna));
+
+        Soldado soldado = new Soldado(nombre, puntosVida, fila, columna);
+        tablero.get(fila).add(soldado);
+
+        return soldado;
+    }
+
+    private static Soldado crearSoldados2(int index, int ejercito, Random random, ArrayList<ArrayList<Soldado>> tablero) {
+        int puntosVida = random.nextInt(5) + 1;
+        String nombre = "Soldado " + index + "X" + ejercito + " ♠ " + puntosVida + " vida ♠ ";
         int fila, columna;
 
         do {
