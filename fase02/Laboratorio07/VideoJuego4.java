@@ -45,7 +45,7 @@ public class VideoJuego4{
     }
     private static Soldado crearSoldados1(int index, int ejercito, Random random, ArrayList<ArrayList<Soldado>> tablero) {
         int puntosVida = random.nextInt(5) + 1;
-        String nombre = "Soldado " + index + "X" + ejercito + " ♦ " + puntosVida + " vida ♦ ";
+        String nombre = "Soldado " + index + "X" + ejercito + " |" + puntosVida + "| vida";
         int fila, columna;
 
         do {
@@ -61,7 +61,7 @@ public class VideoJuego4{
 
     private static Soldado crearSoldados2(int index, int ejercito, Random random, ArrayList<ArrayList<Soldado>> tablero) {
         int puntosVida = random.nextInt(5) + 1;
-        String nombre = "Soldado " + index + "X" + ejercito + " ♠ " + puntosVida + " vida ♠ ";
+        String nombre = "Soldado " + index + "X" + ejercito + "_" + puntosVida + "_vida";
         int fila, columna;
 
         do {
