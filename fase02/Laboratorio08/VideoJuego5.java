@@ -92,21 +92,20 @@ public class VideoJuego5{
         System.out.println();
     }
     private static void imprimirRankingDePoder(HashMap<String, Soldado> ejercito1, HashMap<String, Soldado> ejercito2) {
-                // Ordenar soldados por puntos de vida de forma ascendente (mayor a menor)
+        // Ordenar soldados por puntos de vida de forma ascendente (menor a mayor)
         List<Soldado> listaEjercito1 = new ArrayList<>(ejercito1.values());
         List<Soldado> listaEjercito2 = new ArrayList<>(ejercito2.values());
-        Collections.sort(listaEjercito1, Comparator.comparingInt(Soldado:getPuntosVida));
-        Collections.sort(listaEjercito2, Comparator.comparingInt(Soldado:getPuntosVida));
+        Collections.sort(listaEjercito1, Comparator.comparingInt(Soldado::getPuntosDeVida).reversed());
+        Collections.sort(listaEjercito2, Comparator.comparingInt(Soldado::getPuntosDeVida).reversed());
 
-
-        System.out.println("Ranking de poder del Ejército 1 (mayor a menor):");
+        System.out.println("Ranking de poder del Ejército 1 (menor a mayor):");
         for (Soldado soldado : listaEjercito1) {
             System.out.println(soldado.getNombre() + " - Puntos de Vida: " + soldado.getPuntosDeVida());
         }
 
         System.out.println();
 
-        System.out.println("Ranking de poder del Ejército 2 (mayor a menor):");
+        System.out.println("Ranking de poder del Ejército 2 (menor a mayor):");
         for (Soldado soldado : listaEjercito2) {
             System.out.println(soldado.getNombre() + " - Puntos de Vida: " + soldado.getPuntosDeVida());
         }
