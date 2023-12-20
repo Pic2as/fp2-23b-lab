@@ -3,9 +3,9 @@ public class VideoJuego5{
     public static void main(String[]args){
         int n = 10; // Número de soldados por ejército
         ArrayList<ArrayList<Soldado>> tablero = new ArrayList<>();
-        ArrayList<Soldado> ejercito1 = new ArrayList<>();
-        ArrayList<Soldado> ejercito2 = new ArrayList<>();
-
+        HashMap<String, Soldado> ejercito1 = new HashMap<>();
+        HashMap<String, Soldado> ejercito2 = new HashMap<>();
+        
         inicializarTablero(tablero, ejercito1, ejercito2, n);
         
         imprimirTablero(tablero);
