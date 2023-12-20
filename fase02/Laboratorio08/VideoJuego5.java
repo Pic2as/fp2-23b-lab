@@ -16,7 +16,7 @@ public class VideoJuego5{
 
     }
 
-    private static void inicializarTablero(ArrayList<ArrayList<Soldado>> tablero, ArrayList<Soldado> ejercito1, ArrayList<Soldado> ejercito2, int n) {
+    private static void inicializarTablero(ArrayList<ArrayList<Soldado>> tablero, HashMap<String, Soldado> ejercito1,HashMap<String, Soldado> ejercito2, int n) {
         Random random = new Random();
 
         for (int i = 0; i < 10; i++) {
@@ -26,11 +26,11 @@ public class VideoJuego5{
         for (int i = 0; i < 10; i++) {
             // Crear soldado para el ejército 1
             Soldado soldado1 = crearSoldados1(i, 1, random, tablero);
-            ejercito1.add(soldado1);
+            ejercito1.put(soldado1.getNombre(), soldado1);
 
             // Crear soldado para el ejército 2
             Soldado soldado2 = crearSoldados2(i, 2, random, tablero);
-            ejercito2.add(soldado2);
+            ejercito2.put(soldado2.getNombre(), soldado2);
         }
     }
     private static void imprimirTablero(ArrayList<ArrayList<Soldado>> tablero) {
@@ -79,20 +79,22 @@ public class VideoJuego5{
         return !tablero.get(fila).isEmpty() && tablero.get(fila).get(tablero.get(fila).size() - 1).getColumna() == columna;
     }
 
-    private static void imprimirDatosSoldados(ArrayList<Soldado> ejercito1, ArrayList<Soldado> ejercito2) {
+    private static void imprimirDatosSoldados(HashMap<String, Soldado> ejercito1, HashMap<String, Soldado> ejercito2) {
         System.out.println("Datos de los soldados del Ejército 1:");
-        for (Soldado soldado : ejercito1) {
+        for (Soldado soldado : ejercito1.values()) {
             System.out.println(soldado.getNombre() + " - Puntos de Vida: " + soldado.getPuntosDeVida());
         }
         System.out.println();
         System.out.println("Datos de los soldados del Ejército 2:");
-        for (Soldado soldado : ejercito2) {
+        for (Soldado soldado : ejercito2.values()) {
             System.out.println(soldado.getNombre() + " - Puntos de Vida: " + soldado.getPuntosDeVida());
         }
         System.out.println();
     }
-    private static void imprimirRankingDePoder(ArrayList<Soldado> ejercito1, ArrayList<Soldado> ejercito2) {
-        // Ordenar soldados por puntos de vida de forma ascendente (ahora de mayor a menor)
+    private static void imprimirRankingDePoder(HashMap<String, Soldado> ejercito1, HashMap<String, Soldado> ejercito2) {
+        List<Soldado> listaEjercito1 = new ArrayList<>(ejercito1.values());
+        List<Soldado> listaEjercito2 = new ArrayList<>(ejercito2.values());
+        // Ordenar soldados por puntos de vida de forma ascendente (mayor a menor)
         Collections.sort(ejercito1, (s1, s2) -> Integer.compare(s2.getPuntosDeVida(), s1.getPuntosDeVida()));
         Collections.sort(ejercito2, (s1, s2) -> Integer.compare(s2.getPuntosDeVida(), s1.getPuntosDeVida()));
 
