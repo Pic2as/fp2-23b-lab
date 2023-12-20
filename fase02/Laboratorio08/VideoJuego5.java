@@ -98,47 +98,32 @@ public class VideoJuego5{
         Collections.sort(listaEjercito1, Comparator.comparingInt(Soldado::getPuntosDeVida).reversed());
         Collections.sort(listaEjercito2, Comparator.comparingInt(Soldado::getPuntosDeVida).reversed());
 
-        System.out.println("Ranking de poder del Ejército 1 (menor a mayor):");
+        System.out.println("Ranking de poder del Ejército 1 (mayor a menor):");
         for (Soldado soldado : listaEjercito1) {
             System.out.println(soldado.getNombre() + " - Puntos de Vida: " + soldado.getPuntosDeVida());
         }
 
         System.out.println();
 
-        System.out.println("Ranking de poder del Ejército 2 (menor a mayor):");
+        System.out.println("Ranking de poder del Ejército 2 (mayor a menor):");
         for (Soldado soldado : listaEjercito2) {
             System.out.println(soldado.getNombre() + " - Puntos de Vida: " + soldado.getPuntosDeVida());
         }
         System.out.println();
     }
     private static void imprimirSoldadoConMayorVida(HashMap<String, Soldado> ejercito1, HashMap<String, Soldado> ejercito2) {
-        Soldado maxVidaEjercito1 = encontrarSoldadoConMayorVida(ejercito1);
-        Soldado maxVidaEjercito2 = encontrarSoldadoConMayorVida(ejercito2);
+        Soldado maxVidaEjercito1 = Collections.max(ejercito1.values(), Comparator.comparingInt(Soldado::getPuntosDeVida));
+        Soldado maxVidaEjercito2 = Collections.max(ejercito2.values(), Comparator.comparingInt(Soldado::getPuntosDeVida));
 
         System.out.println("Soldado con mayor vida del Ejército 1: " + maxVidaEjercito1.getNombre() + " - Puntos de Vida: " + maxVidaEjercito1.getPuntosDeVida());
         System.out.println("Soldado con mayor vida del Ejército 2: " + maxVidaEjercito2.getNombre() + " - Puntos de Vida: " + maxVidaEjercito2.getPuntosDeVida());
         if (maxVidaEjercito1.getPuntosDeVida() > maxVidaEjercito2.getPuntosDeVida()) {
-            System.out.println(" > El Ejército 1 ganaria por tener un soldado con mayor vida.\n");
+            System.out.println(" > El Ejército 1 gana por tener un soldado con mayor vida.\n");
         } else if (maxVidaEjercito1.getPuntosDeVida() < maxVidaEjercito2.getPuntosDeVida()) {
-            System.out.println(" > El Ejército 2 ganaria por tener un soldado con mayor vida.\n");
+            System.out.println(" > El Ejército 2 gana por tener un soldado con mayor vida.\n");
         } else {
             System.out.println(" > Ambos ejércitos tienen un soldado con la misma vida máxima.\n");
         }
-    }
-    private static Soldado encontrarSoldadoConMayorVida(HashMap<String, Soldado> ejercito) {
-        if (ejercito.isEmpty()) {
-            return null;  // Manejar el caso de una lista vacía según tus requerimientos
-        }
-    
-        Soldado maxVidaSoldado = ejercito.get(0);
-    
-        for (Soldado soldado : ejercito.values()) {
-            if (soldado.getPuntosDeVida() > maxVidaSoldado.getPuntosDeVida()) {
-                maxVidaSoldado = soldado;
-            }
-        }
-    
-        return maxVidaSoldado;
     }
     private static void imprimirPromedioDeVida(HashMap<String, Soldado> ejercito1, HashMap<String, Soldado> ejercito2) {
         double promedioVidaEjercito1 = calcularPromedioVida(ejercito1);
