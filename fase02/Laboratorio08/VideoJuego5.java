@@ -95,18 +95,19 @@ public class VideoJuego5{
         List<Soldado> listaEjercito1 = new ArrayList<>(ejercito1.values());
         List<Soldado> listaEjercito2 = new ArrayList<>(ejercito2.values());
         // Ordenar soldados por puntos de vida de forma ascendente (mayor a menor)
-        Collections.sort(ejercito1, (s1, s2) -> Integer.compare(s2.getPuntosDeVida(), s1.getPuntosDeVida()));
-        Collections.sort(ejercito2, (s1, s2) -> Integer.compare(s2.getPuntosDeVida(), s1.getPuntosDeVida()));
+        Collections.sort(listaEjercito1, Comparator.comparingInt(Soldado:getPuntosVida));
+        Collections.sort(listaEjercito2, Comparator.comparingInt(Soldado:getPuntosVida));
+
 
         System.out.println("Ranking de poder del Ejército 1 (mayor a menor):");
-        for (Soldado soldado : ejercito1) {
+        for (Soldado soldado : listaEjercito1) {
             System.out.println(soldado.getNombre() + " - Puntos de Vida: " + soldado.getPuntosDeVida());
         }
 
         System.out.println();
 
         System.out.println("Ranking de poder del Ejército 2 (mayor a menor):");
-        for (Soldado soldado : ejercito2) {
+        for (Soldado soldado : listaEjercito2) {
             System.out.println(soldado.getNombre() + " - Puntos de Vida: " + soldado.getPuntosDeVida());
         }
         System.out.println();
