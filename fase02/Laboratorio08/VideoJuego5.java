@@ -92,9 +92,9 @@ public class VideoJuego5{
         System.out.println();
     }
     private static void imprimirRankingDePoder(HashMap<String, Soldado> ejercito1, HashMap<String, Soldado> ejercito2) {
+                // Ordenar soldados por puntos de vida de forma ascendente (mayor a menor)
         List<Soldado> listaEjercito1 = new ArrayList<>(ejercito1.values());
         List<Soldado> listaEjercito2 = new ArrayList<>(ejercito2.values());
-        // Ordenar soldados por puntos de vida de forma ascendente (mayor a menor)
         Collections.sort(listaEjercito1, Comparator.comparingInt(Soldado:getPuntosVida));
         Collections.sort(listaEjercito2, Comparator.comparingInt(Soldado:getPuntosVida));
 
@@ -112,7 +112,7 @@ public class VideoJuego5{
         }
         System.out.println();
     }
-    private static void imprimirSoldadoConMayorVida(ArrayList<Soldado> ejercito1, ArrayList<Soldado> ejercito2) {
+    private static void imprimirSoldadoConMayorVida(HashMap<String, Soldado> ejercito1, HashMap<String, Soldado> ejercito2) {
         Soldado maxVidaEjercito1 = encontrarSoldadoConMayorVida(ejercito1);
         Soldado maxVidaEjercito2 = encontrarSoldadoConMayorVida(ejercito2);
 
@@ -126,14 +126,14 @@ public class VideoJuego5{
             System.out.println(" > Ambos ejércitos tienen un soldado con la misma vida máxima.\n");
         }
     }
-    private static Soldado encontrarSoldadoConMayorVida(ArrayList<Soldado> ejercito) {
+    private static Soldado encontrarSoldadoConMayorVida(HashMap<String, Soldado> ejercito) {
         if (ejercito.isEmpty()) {
             return null;  // Manejar el caso de una lista vacía según tus requerimientos
         }
     
         Soldado maxVidaSoldado = ejercito.get(0);
     
-        for (Soldado soldado : ejercito) {
+        for (Soldado soldado : ejercito.values()) {
             if (soldado.getPuntosDeVida() > maxVidaSoldado.getPuntosDeVida()) {
                 maxVidaSoldado = soldado;
             }
@@ -141,7 +141,7 @@ public class VideoJuego5{
     
         return maxVidaSoldado;
     }
-    private static void imprimirPromedioDeVida(ArrayList<Soldado> ejercito1, ArrayList<Soldado> ejercito2) {
+    private static void imprimirPromedioDeVida(HashMap<String, Soldado> ejercito1, HashMap<String, Soldado> ejercito2) {
         double promedioVidaEjercito1 = calcularPromedioVida(ejercito1);
         double promedioVidaEjercito2 = calcularPromedioVida(ejercito2);
 
@@ -155,10 +155,10 @@ public class VideoJuego5{
             System.out.println(" > Ambos ejércitos tienen el mismo promedio de vida.\n");
         }
     }
-    private static double calcularPromedioVida(ArrayList<Soldado> ejercito) {
+    private static double calcularPromedioVida(HashMap<String, Soldado> ejercito) {
         double sumaVida = 0;
     
-        for (Soldado soldado : ejercito) {
+        for (Soldado soldado : ejercito.values()) {
             sumaVida += soldado.getPuntosDeVida();
         }
     
