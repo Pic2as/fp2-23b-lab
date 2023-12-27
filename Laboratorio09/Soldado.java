@@ -5,16 +5,15 @@ public class Soldado {
     private int nivelVida;
     private int vidaActual;
     private int velocidad;
+    private int fila;
+    private int columna;
     private String actitud;
     private boolean vive;
 
-    public Soldado(String nombre, int nivelVida) {
-        this.nombre = nombre;
-        this.nivelVida = nivelVida;
-        this.vidaActual = nivelVida;
-        this.velocidad = 0;
-        this.actitud = "Defensiva";
-        this.vive = true;
+
+
+    public Soldado() {
+        
     }
 
     public Soldado(String nombre, int nivelAtaque, int nivelDefensa, int nivelVida, int velocidad, String actitud) {
@@ -32,4 +31,91 @@ public class Soldado {
         this(nombre, nivelAtaque, nivelDefensa, nivelVida, velocidad, actitud);
         this.vive = vive;
     }
+    public String getActitud() {
+        return actitud;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getNivelAtaque() {
+        return nivelAtaque;
+    }
+
+    public void setNivelAtaque(int nivelAtaque) {
+        this.nivelAtaque = nivelAtaque;
+    }
+
+    public int getNivelDefensa() {
+        return nivelDefensa;
+    }
+
+    public void setNivelDefensa(int nivelDefensa) {
+        this.nivelDefensa = nivelDefensa;
+    }
+
+    public int getNivelVida() {
+        return nivelVida;
+    }
+
+    public void setNivelVida(int nivelVida) {
+        this.nivelVida = nivelVida;
+    }
+
+    public int getVidaActual() {
+        return vidaActual;
+    }
+
+    public void setVidaActual(int vidaActual) {
+        this.vidaActual = vidaActual;
+    }
+
+    public int getVelocidad() {
+        return velocidad;
+    }
+
+    public void setVelocidad(int velocidad) {
+        this.velocidad = velocidad;
+    }
+
+    public int getFila() {
+        return fila;
+    }
+
+    public void setFila(int fila) {
+        this.fila = fila;
+    }
+
+    public int getColumna() {
+        return columna;
+    }
+
+    public void setColumna(int columna) {
+        this.columna = columna;
+    }
+
+    public void setActitud(String actitud) {
+        this.actitud = actitud;
+    }
+
+    public boolean isVive() {
+        return vive;
+    }
+
+    public void setVive(boolean vive) {
+        this.vive = vive;
+    }
+
+    @Override
+    public String toString() {
+        return "Soldado [nombre=" + nombre + ", nivelAtaque=" + nivelAtaque + ", nivelDefensa=" + nivelDefensa
+                + ", nivelVida=" + nivelVida + ", vidaActual=" + vidaActual + ", velocidad=" + velocidad + ", fila="
+                + fila + ", columna=" + columna + ", actitud=" + actitud + ", vive=" + vive + "]";
+    }
+    
 }
