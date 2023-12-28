@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public class Soldado {
     private String nombre;
     private int nivelAtaque;
@@ -63,7 +61,7 @@ public class Soldado {
         return nivelVida;
     }
 
-    public void setNivelVida(Random random) {
+    public void setNivelVida(int random) {
         this.nivelVida = random;
     }
 
