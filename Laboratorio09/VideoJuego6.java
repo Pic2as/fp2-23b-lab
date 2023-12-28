@@ -53,7 +53,7 @@ public class VideoJuego6 {
         Random random = new Random();
 
         for (int i = 0; i < soldados.length; i++) {
-            String name = i + id; 
+            String nombreCompleto = id + i; // Concatenar el nombre del soldado con su identificador
             int filaSoldado = random.nextInt(tablero.length);
             int columnaSoldado = random.nextInt(tablero[0].length);
 
@@ -63,17 +63,10 @@ public class VideoJuego6 {
                 columnaSoldado = random.nextInt(tablero[0].length);
             }
 
-            tablero[filaSoldado][columnaSoldado] = name;
+            tablero[filaSoldado][columnaSoldado] = nombreCompleto; // Asignar el nombre completo al tablero
         }
     }
-    public static void mostrarTablero(String[][] tablero) {
-        for (String[] fila : tablero) {
-            for (String casilla : fila) {
-                System.out.print(casilla + " ");
-            }
-            System.out.println();
-        }
-    }
+
     public static void mostrarListaSoldados(Soldado[] ejercito, String id) {
         for (int i = 0; i < ejercito.length; i++) {
             Soldado soldado = ejercito[i];
@@ -82,4 +75,12 @@ public class VideoJuego6 {
         }
     }
     
+    public static void mostrarTablero(String[][] tablero) {
+        for (String[] fila : tablero) {
+            for (String casilla : fila) {
+                System.out.print(casilla + " ");
+            }
+            System.out.println();
+        }
+    }      
 }
