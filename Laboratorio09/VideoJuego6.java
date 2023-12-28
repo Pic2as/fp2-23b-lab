@@ -46,7 +46,7 @@ public class VideoJuego6 {
     public static void ubicarEjercito(String[][] tablero, Soldado[] ejercito, String id) {
         Random random = new Random();
 
-        for (Soldado soldado : ejercito) {
+        for (int i = 0; i < ejercito.length; i++) {
             int filaSoldado = random.nextInt(tablero.length);
             int columnaSoldado = random.nextInt(tablero[0].length);
 
@@ -56,7 +56,7 @@ public class VideoJuego6 {
                 columnaSoldado = random.nextInt(tablero[0].length);
             }
 
-            tablero[filaSoldado][columnaSoldado] = id;
+            tablero[filaSoldado][columnaSoldado] = id + i;
         }
     }
     public static void mostrarTablero(String[][] tablero) {
