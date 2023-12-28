@@ -8,7 +8,7 @@ public class VideoJuego6 {
         String[][] tablero = new String[filas][columnas];
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
-                tablero[i][j] = "-";
+                tablero[i][j] = "--";
             }
         }
         Random random = new Random();
@@ -18,6 +18,8 @@ public class VideoJuego6 {
         String idB = "B";
         Soldado[] ejercitoA = crearSoldados(nA,idA);
         Soldado[] ejercitoB = crearSoldados(nB,idB);
+        mostrarListaSoldados(ejercitoB);
+        mostrarListaSoldados(ejercitoA);
         ubicarEjercito(tablero,ejercitoA, idA);
         ubicarEjercito(tablero,ejercitoB, idB);
         mostrarTablero(tablero);
@@ -51,12 +53,12 @@ public class VideoJuego6 {
             int columnaSoldado = random.nextInt(tablero[0].length);
 
             // Verificar que la posición esté vacía antes de colocar al soldado
-            while (!tablero[filaSoldado][columnaSoldado].equals("-")) {
+            while (!tablero[filaSoldado][columnaSoldado].equals("--")) {
                 filaSoldado = random.nextInt(tablero.length);
                 columnaSoldado = random.nextInt(tablero[0].length);
             }
 
-            tablero[filaSoldado][columnaSoldado] = id + i;
+            tablero[filaSoldado][columnaSoldado] = i + id;
         }
     }
     public static void mostrarTablero(String[][] tablero) {
@@ -65,6 +67,11 @@ public class VideoJuego6 {
                 System.out.print(casilla + " ");
             }
             System.out.println();
+        }
+    }
+    public static void mostrarListaSoldados(Soldado[] ejercito) {
+        for (Soldado soldado : ejercito) {
+            System.out.println(soldado.getNombre());
         }
     }
 }
