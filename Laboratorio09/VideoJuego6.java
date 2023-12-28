@@ -31,17 +31,17 @@ public class VideoJuego6 {
     public static Soldado[] crearSoldados(int n, String id){
         Random random = new Random();
         Soldado[] ejercito = new Soldado[n];
-
+    
         for (int i = 0; i < n; i++) {
-            String nombre = "Soldado " + i + id;
+            String nombre = "Soldado " + (i+1) + id;
             int nivelAtaque = random.nextInt(5) + 1;
             int nivelDefensa = random.nextInt(5) + 1;
             int nivelVida = random.nextInt(5) + 1;
-            int vidaActual = nivelVida;
+            int vidaActual = nivelVida; // Se asigna también al inicio la vida actual
             int velocidad = random.nextInt(5) + 1;
             String actitud = "Neutral";
             boolean vive = true;
-
+    
             ejercito[i] = new Soldado(nombre, nivelAtaque, nivelDefensa, nivelVida, vidaActual, velocidad, actitud, vive);
         }
         return ejercito;
@@ -52,6 +52,7 @@ public class VideoJuego6 {
         Random random = new Random();
 
         for (int i = 0; i < soldados.length; i++) {
+            String name = i + id; 
             int filaSoldado = random.nextInt(tablero.length);
             int columnaSoldado = random.nextInt(tablero[0].length);
 
@@ -61,7 +62,7 @@ public class VideoJuego6 {
                 columnaSoldado = random.nextInt(tablero[0].length);
             }
 
-            tablero[filaSoldado][columnaSoldado] = soldados[i].getNombre();
+            tablero[filaSoldado][columnaSoldado] = name;
         }
     }
     public static void mostrarTablero(String[][] tablero) {

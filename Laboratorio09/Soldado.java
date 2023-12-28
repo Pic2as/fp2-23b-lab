@@ -10,10 +10,6 @@ public class Soldado {
     private String actitud;
     private boolean vive;
 
-    public Soldado(String nombre2, int nivelAtaque2, int nivelDefensa2, int nivelVida2, int velocidad2, String actitud2) {
-        
-    }
-
     public Soldado(String nombre, int nivelAtaque, int nivelDefensa, int nivelVida, int velocidad,int columna, int fila, String actitud) {
         this.nombre = nombre;
         this.nivelAtaque = nivelAtaque;
@@ -26,18 +22,18 @@ public class Soldado {
         this.vive = true;
     }
     public Soldado(String nombre, int nivelAtaque, int nivelDefensa, int nivelVida, int velocidad, String actitud, boolean vive) {
-        this(nombre, nivelAtaque, nivelDefensa, nivelVida, velocidad, actitud);
+        this(nombre, nivelAtaque, nivelDefensa, nivelVida, velocidad, velocidad, actitud, vive);
         this.vive = vive;
     }
-    public Soldado(String nombre2, int nivelAtaque2, int nivelDefensa2, int nivelVida2, int vidaActual2, int velocidad2,
-            String actitud2, boolean vive2) {
+    public Soldado(String nombre2, int nivelAtaque2, int nivelDefensa2, int nivelVida2, int vidaActual2, int velocidad2,String actitud2, boolean vive2) {
+
     }
 
     public String getActitud() {
         return actitud;
     }
 
-    public String getNombre() {
+    public String getNombre(String nombre2) {
         return nombre;
     }
 
@@ -112,4 +108,7 @@ public class Soldado {
     public void setVive(boolean vive) {
         this.vive = vive;
     }
+	public String getNombre() {
+		return nombre;
+	}
 }
