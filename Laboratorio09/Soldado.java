@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Soldado {
     private String nombre;
     private int nivelAtaque;
@@ -10,13 +12,11 @@ public class Soldado {
     private String actitud;
     private boolean vive;
 
-
-
-    public Soldado() {
+    public Soldado(String nombre2, int nivelAtaque2, int nivelDefensa2, int nivelVida2, int velocidad2, String actitud2) {
         
     }
 
-    public Soldado(String nombre, int nivelAtaque, int nivelDefensa, int nivelVida, int velocidad, String actitud) {
+    public Soldado(String nombre, int nivelAtaque, int nivelDefensa, int nivelVida, int velocidad,int columna, int fila, String actitud) {
         this.nombre = nombre;
         this.nivelAtaque = nivelAtaque;
         this.nivelDefensa = nivelDefensa;
@@ -24,9 +24,9 @@ public class Soldado {
         this.vidaActual = nivelVida;
         this.velocidad = velocidad;
         this.actitud = actitud;
+        this.columna = columna;
         this.vive = true;
     }
-
     public Soldado(String nombre, int nivelAtaque, int nivelDefensa, int nivelVida, int velocidad, String actitud, boolean vive) {
         this(nombre, nivelAtaque, nivelDefensa, nivelVida, velocidad, actitud);
         this.vive = vive;
@@ -63,8 +63,8 @@ public class Soldado {
         return nivelVida;
     }
 
-    public void setNivelVida(int nivelVida) {
-        this.nivelVida = nivelVida;
+    public void setNivelVida(Random random) {
+        this.nivelVida = random;
     }
 
     public int getVidaActual() {
