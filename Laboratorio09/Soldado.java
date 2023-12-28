@@ -29,6 +29,10 @@ public class Soldado {
         this(nombre, nivelAtaque, nivelDefensa, nivelVida, velocidad, actitud);
         this.vive = vive;
     }
+    public Soldado(String nombre2, int nivelAtaque2, int nivelDefensa2, int nivelVida2, int vidaActual2, int velocidad2,
+            String actitud2, boolean vive2) {
+    }
+
     public String getActitud() {
         return actitud;
     }

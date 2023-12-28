@@ -12,16 +12,18 @@ public class VideoJuego6 {
             }
         }
         Random random = new Random();
-        int n = random.nextInt(10) + 1;
-        Soldado[] soldados = new Soldado[n];
-        soldados = crearSoldadosA(n);
+        int A = random.nextInt(10) + 1;
+        int B = random.nextInt(10) + 1;
+        Soldado[] ejercitoA = crearSoldados(A);
+        Soldado[] ejercitoB = crearSoldados(B);
+
     }
-    public static Soldado[] crearSoldadosA(int n){
+    public static Soldado[] crearSoldados(int n){
         Random random = new Random();
         Soldado[] ejercito = new Soldado[n];
 
         for (int i = 0; i < n; i++) {
-            String nombre = "Soldado" + i;
+            String nombre = "Soldado" + i + " A";
             int nivelAtaque = random.nextInt(5) + 1;
             int nivelDefensa = random.nextInt(5) + 1;
             int nivelVida = random.nextInt(5) + 1;
