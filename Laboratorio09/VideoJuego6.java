@@ -18,14 +18,17 @@ public class VideoJuego6 {
         String idB = "B";
         Soldado[] ejercitoA = crearSoldados(nA,idA);
         Soldado[] ejercitoB = crearSoldados(nB,idB);
-
-        mostrarListaSoldados(ejercitoB, idB);
-        mostrarListaSoldados(ejercitoA, idA);
-
+        
+        mostrarTablero(tablero);
         ubicarEjercito(tablero,ejercitoA, idA);
         ubicarEjercito(tablero,ejercitoB, idB);
-
-        mostrarTablero(tablero);
+        
+        System.out.println("Lista Ejercito A: ");
+        mostrarListaSoldados(ejercitoA, idA);
+        System.out.println();
+        System.out.println("Lista Ejercito B: ");
+        mostrarListaSoldados(ejercitoB, idB);
+        System.out.println();
 
     }
     public static Soldado[] crearSoldados(int n, String id){
@@ -51,27 +54,30 @@ public class VideoJuego6 {
     // Método para ubicar un ejército en el tablero con la letra correspondiente
     public static void ubicarEjercito(String[][] tablero, Soldado[] soldados, String id) {
         Random random = new Random();
-
+    
         for (int i = 0; i < soldados.length; i++) {
-            String nombreCompleto = id + i; // Concatenar el nombre del soldado con su identificador
+            Soldado soldado = soldados[i];
             int filaSoldado = random.nextInt(tablero.length);
             int columnaSoldado = random.nextInt(tablero[0].length);
-
+    
             // Verificar que la posición esté vacía antes de colocar al soldado
             while (!tablero[filaSoldado][columnaSoldado].equals("--")) {
                 filaSoldado = random.nextInt(tablero.length);
                 columnaSoldado = random.nextInt(tablero[0].length);
             }
-
-            tablero[filaSoldado][columnaSoldado] = nombreCompleto; // Asignar el nombre completo al tablero
+    
+            // Asignar el nombre del soldado al tablero en su posición correspondiente
+            tablero[filaSoldado][columnaSoldado] = id + i;
+            soldado.setFila(filaSoldado); // Actualizar la fila del soldado
+            soldado.setColumna(columnaSoldado); // Actualizar la columna del soldado
         }
     }
+    
 
     public static void mostrarListaSoldados(Soldado[] ejercito, String id) {
         for (int i = 0; i < ejercito.length; i++) {
             Soldado soldado = ejercito[i];
-            String nombreCompleto = soldado.getNombre() + id + i; // Concatenar el nombre del soldado con su identificador
-            System.out.println("Soldado: " + nombreCompleto);
+            System.out.println("Soldado" + id + 1);
         }
     }
     
