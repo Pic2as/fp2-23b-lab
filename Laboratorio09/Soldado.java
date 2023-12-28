@@ -5,8 +5,6 @@ public class Soldado {
     private int nivelVida;
     private int vidaActual;
     private int velocidad;
-    private int fila;
-    private int columna;
     private String actitud;
     private boolean vive;
 
@@ -18,7 +16,6 @@ public class Soldado {
         this.vidaActual = nivelVida;
         this.velocidad = velocidad;
         this.actitud = actitud;
-        this.columna = columna;
         this.vive = true;
     }
     public Soldado(String nombre, int nivelAtaque, int nivelDefensa, int nivelVida, int velocidad, String actitud, boolean vive) {
@@ -69,14 +66,6 @@ public class Soldado {
         return velocidad;
     }
     
-    public int getFila() {
-        return fila;
-    }
-    
-    public int getColumna() {
-        return columna;
-    }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -103,14 +92,6 @@ public class Soldado {
 
     public void setVelocidad(int velocidad) {
         this.velocidad = velocidad;
-    }
-
-    public void setFila(int fila) {
-        this.fila = fila;
-    }
-
-    public void setColumna(int columna) {
-        this.columna = columna;
     }
 
     public void setActitud(String actitud) {

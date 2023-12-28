@@ -36,7 +36,7 @@ public class VideoJuego6 {
         Soldado[] ejercito = new Soldado[n];
     
         for (int i = 0; i < n; i++) {
-            String nombre = "Soldado " + (i + 1) + id;
+            String nombre = (i + 1) + id;
             int nivelAtaque = random.nextInt(5) + 1;
             int nivelDefensa = random.nextInt(5) + 1;
             int nivelVida = random.nextInt(5) + 1;
