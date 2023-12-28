@@ -44,7 +44,7 @@ public class Soldado {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
+    
     public int getNivelAtaque() {
         return nivelAtaque;
     }

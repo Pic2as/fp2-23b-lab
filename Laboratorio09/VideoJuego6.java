@@ -48,10 +48,10 @@ public class VideoJuego6 {
     }
 
     // Método para ubicar un ejército en el tablero con la letra correspondiente
-    public static void ubicarEjercito(String[][] tablero, Soldado[] soldado, String id) {
+    public static void ubicarEjercito(String[][] tablero, Soldado[] soldados, String id) {
         Random random = new Random();
 
-        for (int i = 0; i < soldado.length; i++) {
+        for (int i = 0; i < soldados.length; i++) {
             int filaSoldado = random.nextInt(tablero.length);
             int columnaSoldado = random.nextInt(tablero[0].length);
 
@@ -61,8 +61,7 @@ public class VideoJuego6 {
                 columnaSoldado = random.nextInt(tablero[0].length);
             }
 
-            tablero[filaSoldado][columnaSoldado] = i + id;
-            soldado[i].setNombre("Soldado" + i + id);
+            tablero[filaSoldado][columnaSoldado] = soldados[i].getNombre();
         }
     }
     public static void mostrarTablero(String[][] tablero) {
