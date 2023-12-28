@@ -22,28 +22,22 @@ public class VideoJuego6 {
         mostrarTablero(tablero);
         ubicarEjercito(tablero,ejercitoA, idA);
         ubicarEjercito(tablero,ejercitoB, idB);
-        
-        System.out.println("Lista Ejercito A: ");
-        mostrarListaSoldados(ejercitoA, idA);
-        System.out.println();
-        System.out.println("Lista Ejercito B: ");
-        mostrarListaSoldados(ejercitoB, idB);
-        System.out.println();
-
+        mostrarListaSoldados(ejercitoB);
+        mostrarListaSoldados(ejercitoA);
     }
     public static Soldado[] crearSoldados(int n, String id){
         Random random = new Random();
         Soldado[] ejercito = new Soldado[n];
     
         for (int i = 0; i < n; i++) {
-            String nombre = (i + 1) + id;
-            int nivelAtaque = random.nextInt(5) + 1;
+            String nombre = "Soldado " + (i + 1) + id;
+            int nivelAtaque  = random.nextInt(5) + 1;
             int nivelDefensa = random.nextInt(5) + 1;
-            int nivelVida = random.nextInt(5) + 1;
-            int vidaActual = nivelVida;
-            int velocidad = random.nextInt(5) + 1;
-            String actitud = "Neutral";
-            boolean vive = true;
+            int nivelVida    = random.nextInt(5) + 1;
+            int vidaActual   = nivelVida;
+            int velocidad    = random.nextInt(5) + 1;
+            String actitud   = "Neutral";
+            boolean vive     = true;
     
             ejercito[i] = new Soldado(nombre, nivelAtaque, nivelDefensa, nivelVida, vidaActual, velocidad, actitud, vive);
         }
@@ -54,33 +48,21 @@ public class VideoJuego6 {
     // Método para ubicar un ejército en el tablero con la letra correspondiente
     public static void ubicarEjercito(String[][] tablero, Soldado[] soldados, String id) {
         Random random = new Random();
-    
+
         for (int i = 0; i < soldados.length; i++) {
-            Soldado soldado = soldados[i];
+            String name = i + id; 
             int filaSoldado = random.nextInt(tablero.length);
             int columnaSoldado = random.nextInt(tablero[0].length);
-    
+
             // Verificar que la posición esté vacía antes de colocar al soldado
             while (!tablero[filaSoldado][columnaSoldado].equals("--")) {
                 filaSoldado = random.nextInt(tablero.length);
                 columnaSoldado = random.nextInt(tablero[0].length);
             }
-    
-            // Asignar el nombre del soldado al tablero en su posición correspondiente
-            tablero[filaSoldado][columnaSoldado] = id + i;
-            soldado.setFila(filaSoldado); // Actualizar la fila del soldado
-            soldado.setColumna(columnaSoldado); // Actualizar la columna del soldado
-        }
-    }
-    
 
-    public static void mostrarListaSoldados(Soldado[] ejercito, String id) {
-        for (int i = 0; i < ejercito.length; i++) {
-            Soldado soldado = ejercito[i];
-            System.out.println("Soldado" + id + 1);
+            tablero[filaSoldado][columnaSoldado] = name;
         }
     }
-    
     public static void mostrarTablero(String[][] tablero) {
         for (String[] fila : tablero) {
             for (String casilla : fila) {
@@ -88,5 +70,11 @@ public class VideoJuego6 {
             }
             System.out.println();
         }
-    }      
+    }
+    public static void mostrarListaSoldados(Soldado[] ejercito) {
+        for (int i = 0; i < ejercito.length; i++) {
+            Soldado soldado = ejercito[i]; // Concatenar el nombre del soldado con su identificador
+            System.out.println(soldado);
+        }
+    }    
 }

@@ -5,6 +5,8 @@ public class Soldado {
     private int nivelVida;
     private int vidaActual;
     private int velocidad;
+    private int fila;
+    private int columna;
     private String actitud;
     private boolean vive;
 
@@ -16,6 +18,7 @@ public class Soldado {
         this.vidaActual = nivelVida;
         this.velocidad = velocidad;
         this.actitud = actitud;
+        this.columna = columna;
         this.vive = true;
     }
     public Soldado(String nombre, int nivelAtaque, int nivelDefensa, int nivelVida, int velocidad, String actitud, boolean vive) {
@@ -26,18 +29,6 @@ public class Soldado {
 
     }
 
-    public void defender() {
-        this.actitud = "Defensiva";
-    }
-
-    public void atacar() {
-        this.actitud = "Ofensiva";
-    }
-
-    public void huir() {
-        this.actitud = "Fuga";
-    }
-
     public String getNombre() {
 		return nombre;
 	}
@@ -45,57 +36,73 @@ public class Soldado {
     public String getActitud() {
         return actitud;
     }
-    
-    public int getNivelAtaque() {
-        return nivelAtaque;
-    }
-    
-    public int getNivelDefensa() {
-        return nivelDefensa;
-    }
-    
-    public int getNivelVida() {
-        return nivelVida;
-    }
-    
-    public int getVidaActual() {
-        return vidaActual;
-    }
-    
-    public int getVelocidad() {
-        return velocidad;
-    }
-    
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
     
-    public boolean isVive() {
-        return vive;
+    public int getNivelAtaque() {
+        return nivelAtaque;
     }
 
     public void setNivelAtaque(int nivelAtaque) {
         this.nivelAtaque = nivelAtaque;
     }
 
+    public int getNivelDefensa() {
+        return nivelDefensa;
+    }
+
     public void setNivelDefensa(int nivelDefensa) {
         this.nivelDefensa = nivelDefensa;
+    }
+
+    public int getNivelVida() {
+        return nivelVida;
     }
 
     public void setNivelVida(int random) {
         this.nivelVida = random;
     }
 
+    public int getVidaActual() {
+        return vidaActual;
+    }
+
     public void setVidaActual(int vidaActual) {
         this.vidaActual = vidaActual;
+    }
+
+    public int getVelocidad() {
+        return velocidad;
     }
 
     public void setVelocidad(int velocidad) {
         this.velocidad = velocidad;
     }
 
+    public int getFila() {
+        return fila;
+    }
+
+    public void setFila(int fila) {
+        this.fila = fila;
+    }
+
+    public int getColumna() {
+        return columna;
+    }
+
+    public void setColumna(int columna) {
+        this.columna = columna;
+    }
+
     public void setActitud(String actitud) {
         this.actitud = actitud;
+    }
+
+    public boolean isVive() {
+        return vive;
     }
 
     public void setVive(boolean vive) {
