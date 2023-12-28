@@ -19,8 +19,8 @@ public class VideoJuego6 {
         Soldado[] ejercitoA = crearSoldados(nA,idA);
         Soldado[] ejercitoB = crearSoldados(nB,idB);
 
-        mostrarListaSoldados(ejercitoB);
-        mostrarListaSoldados(ejercitoA);
+        mostrarListaSoldados(ejercitoB, idB);
+        mostrarListaSoldados(ejercitoA, idA);
 
         ubicarEjercito(tablero,ejercitoA, idA);
         ubicarEjercito(tablero,ejercitoB, idB);
@@ -33,11 +33,11 @@ public class VideoJuego6 {
         Soldado[] ejercito = new Soldado[n];
     
         for (int i = 0; i < n; i++) {
-            String nombre = "Soldado " + (i+1) + id;
+            String nombre = "Soldado " + (i + 1) + id;
             int nivelAtaque = random.nextInt(5) + 1;
             int nivelDefensa = random.nextInt(5) + 1;
             int nivelVida = random.nextInt(5) + 1;
-            int vidaActual = nivelVida; // Se asigna también al inicio la vida actual
+            int vidaActual = nivelVida;
             int velocidad = random.nextInt(5) + 1;
             String actitud = "Neutral";
             boolean vive = true;
@@ -46,6 +46,7 @@ public class VideoJuego6 {
         }
         return ejercito;
     }
+    
 
     // Método para ubicar un ejército en el tablero con la letra correspondiente
     public static void ubicarEjercito(String[][] tablero, Soldado[] soldados, String id) {
@@ -73,9 +74,12 @@ public class VideoJuego6 {
             System.out.println();
         }
     }
-    public static void mostrarListaSoldados(Soldado[] ejercito) {
-        for (Soldado soldado : ejercito) {
-            System.out.println("Soldado: " + soldado.getNombre());
+    public static void mostrarListaSoldados(Soldado[] ejercito, String id) {
+        for (int i = 0; i < ejercito.length; i++) {
+            Soldado soldado = ejercito[i];
+            String nombreCompleto = soldado.getNombre() + id + i; // Concatenar el nombre del soldado con su identificador
+            System.out.println("Soldado: " + nombreCompleto);
         }
     }
+    
 }

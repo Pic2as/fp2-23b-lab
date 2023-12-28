@@ -29,12 +29,12 @@ public class Soldado {
 
     }
 
+    public String getNombre() {
+		return nombre;
+	}
+    
     public String getActitud() {
         return actitud;
-    }
-
-    public String getNombre(String nombre2) {
-        return nombre;
     }
 
     public void setNombre(String nombre) {
@@ -108,7 +108,5 @@ public class Soldado {
     public void setVive(boolean vive) {
         this.vive = vive;
     }
-	public String getNombre() {
-		return nombre;
-	}
+
 }
