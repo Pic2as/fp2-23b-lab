@@ -108,4 +108,10 @@ public class Soldado {
     public void setVive(boolean vive) {
         this.vive = vive;
     }
+    @Override
+    public String toString() {
+        return "Soldado [nombre=" + nombre + ", nivelAtaque=" + nivelAtaque + ", nivelDefensa=" + nivelDefensa
+                + ", nivelVida=" + nivelVida + ", vidaActual=" + vidaActual + ", velocidad=" + velocidad + ", fila="
+                + fila + ", columna=" + columna + ", actitud=" + actitud + ", vive=" + vive + "]";
+    }
 }

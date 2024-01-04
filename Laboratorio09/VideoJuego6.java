@@ -19,18 +19,22 @@ public class VideoJuego6 {
         Soldado[] ejercitoA = crearSoldados(nA,idA);
         Soldado[] ejercitoB = crearSoldados(nB,idB);
         
-        mostrarTablero(tablero);
+       
         ubicarEjercito(tablero,ejercitoA, idA);
-        ubicarEjercito(tablero,ejercitoB, idB);
-        mostrarListaSoldados(ejercitoB);
-        mostrarListaSoldados(ejercitoA);
+        ubicarEjercito(tablero,ejercitoB, idB); 
+        mostrarTablero(tablero);
+        for (int i = 0; i < ejercitoB.length; i++) {
+            System.out.println(ejercitoB[i]);
+        }
+        //mostrarListaSoldados(ejercitoB);
+        //mostrarListaSoldados(ejercitoA);
     }
     public static Soldado[] crearSoldados(int n, String id){
         Random random = new Random();
         Soldado[] ejercito = new Soldado[n];
     
         for (int i = 0; i < n; i++) {
-            String nombre = "Soldado " + (i + 1) + id;
+            String nombre    = "Soldado " + (i + 1) + id;
             int nivelAtaque  = random.nextInt(5) + 1;
             int nivelDefensa = random.nextInt(5) + 1;
             int nivelVida    = random.nextInt(5) + 1;
@@ -40,6 +44,14 @@ public class VideoJuego6 {
             boolean vive     = true;
     
             ejercito[i] = new Soldado(nombre, nivelAtaque, nivelDefensa, nivelVida, vidaActual, velocidad, actitud, vive);
+            System.out.println(nombre);
+            System.out.println(nivelAtaque);
+            System.out.println(nivelDefensa);
+            System.out.println(nivelVida);
+            System.out.println(velocidad);
+            System.out.println(actitud);
+            System.out.println(vive);
+
         }
         return ejercito;
     }
@@ -73,8 +85,8 @@ public class VideoJuego6 {
     }
     public static void mostrarListaSoldados(Soldado[] ejercito) {
         for (int i = 0; i < ejercito.length; i++) {
-            Soldado soldado = ejercito[i]; // Concatenar el nombre del soldado con su identificador
-            System.out.println(soldado);
+             // Concatenar el nombre del soldado con su identificador
+            System.out.println(ejercito[i]);
         }
     }    
 }
